@@ -156,8 +156,8 @@ class _SingleviewWidgetState extends State<SingleviewWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Container(
-                          width: 322.0,
-                          height: 105.0,
+                          width: 325.0,
+                          height: 110.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -167,155 +167,130 @@ class _SingleviewWidgetState extends State<SingleviewWidget> {
                               width: 0.0,
                             ),
                           ),
-                          child: Stack(
-                            children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: 276.0,
-                                        height: 40.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
-                                          child: AutoSizeText(
-                                            'item_name',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 22.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        icon: Icon(
-                                          Icons.keyboard_control_sharp,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 24.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Container(
-                                      height: 30.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        borderRadius: const BorderRadius.only(
-                                          bottomLeft: Radius.circular(30.0),
-                                          bottomRight: Radius.circular(30.0),
-                                          topLeft: Radius.circular(30.0),
-                                          topRight: Radius.circular(30.0),
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                                child: Image.network(
-                                                  'https://picsum.photos/seed/592/600',
-                                                  width: 20.0,
-                                                  height: 20.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    3.0, 0.0, 7.0, 0.0),
-                                            child: Text(
-                                              'brand_name',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    fontSize: 10.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '\$795.99',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Bebas Neue',
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    wrapWithModel(
-                                      model: _model.rateModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child: const RateWidget(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                          child: Column(
+  mainAxisSize: MainAxisSize.max,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          width: 276,
+          height: 40,
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+          child: Align(
+            alignment: const AlignmentDirectional(-1, 0),
+            child: AutoSizeText(
+              'item_name',
+              textAlign: TextAlign.start,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Inter',
+                    fontSize: 22,
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ),
+        ),
+        FlutterFlowIconButton(
+          borderColor: FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: 20,
+          borderWidth: 1,
+          buttonSize: 40,
+          fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+          icon: Icon(
+            Icons.keyboard_control_sharp,
+            color: FlutterFlowTheme.of(context).primaryText,
+            size: 24,
+          ),
+          onPressed: () {
+            print('IconButton pressed ...');
+          },
+        ),
+      ],
+    ),
+    Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+      child: Container(
+        width: 90,
+        height: 25,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).primaryText,
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Align(
+              alignment: const AlignmentDirectional(-1, 0),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(24),
+                  child: Image.network(
+                    'https://picsum.photos/seed/592/600',
+                    width: 20,
+                    height: 20,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(3, 0, 2, 0),
+              child: Text(
+                'BRAND',
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      fontSize: 10,
+                      letterSpacing: 0,
+                    ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+      child: Container(
+        decoration: BoxDecoration(),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              '\$795.99',
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Bebas Neue',
+                    fontSize: 18,
+                    letterSpacing: 0,
+                  ),
+            ),
+            wrapWithModel(
+              model: _model.rateModel,
+              updateCallback: () => setState(() {}),
+              updateOnChange: true,
+              child: RateWidget(),
+            ),
+          ],
+        ),
+      ),
+    ),
+  ],
+),
                         ),
                       ),
                       Align(
@@ -1662,7 +1637,6 @@ class _SingleviewWidgetState extends State<SingleviewWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Container(
-                  width: 322.0,
                   height: 50.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1678,7 +1652,7 @@ class _SingleviewWidgetState extends State<SingleviewWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           FFButtonWidget(

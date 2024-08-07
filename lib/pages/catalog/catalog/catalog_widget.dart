@@ -4,6 +4,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+
+import '../post_view/post_view_widget.dart'; 
+
+
 import 'catalog_model.dart';
 export 'catalog_model.dart';
 
@@ -38,63 +45,60 @@ class _CatalogWidgetState extends State<CatalogWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(10.0),
+          preferredSize: Size.fromHeight(10),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             automaticallyImplyLeading: false,
-            actions: const [],
+            actions: [],
             centerTitle: false,
-            elevation: 0.0,
+            elevation: 0,
           ),
         ),
         body: SafeArea(
           top: true,
           child: Container(
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0, 1),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: Container(
                       width: double.infinity,
-                      height: 40.0,
+                      height: 40,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         border: Border.all(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          width: 0.0,
+                          width: 0,
                         ),
                       ),
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0, 1),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 375.0,
-                              height: 100.0,
+                              width: 375,
+                              height: 100,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(0),
+                                  topLeft: Radius.circular(0),
+                                  topRight: Radius.circular(0),
                                 ),
                                 shape: BoxShape.rectangle,
                               ),
@@ -109,21 +113,21 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                                       .bodySmall
                                       .override(
                                         fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
+                                        letterSpacing: 0,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
+                                        fontSize: 12,
+                                        letterSpacing: 0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                   enabledBorder: InputBorder.none,
                                   focusedBorder: InputBorder.none,
                                   errorBorder: InputBorder.none,
                                   focusedErrorBorder: InputBorder.none,
-                                  prefixIcon: const Icon(
+                                  prefixIcon: Icon(
                                     Icons.search_sharp,
                                   ),
                                 ),
@@ -131,8 +135,8 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
+                                      fontSize: 12,
+                                      letterSpacing: 0,
                                     ),
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
@@ -145,10 +149,10 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                   child: Container(
                     width: double.infinity,
-                    height: 30.0,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -158,15 +162,15 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                       children: [
                         FlutterFlowIconButton(
                           borderColor: FlutterFlowTheme.of(context).primaryText,
-                          borderRadius: 10.0,
-                          borderWidth: 1.0,
-                          buttonSize: 30.0,
+                          borderRadius: 10,
+                          borderWidth: 1,
+                          buttonSize: 40,
                           fillColor: FlutterFlowTheme.of(context).primaryText,
                           icon: FaIcon(
                             FontAwesomeIcons.compass,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            size: 14.0,
+                            size: 24,
                           ),
                           onPressed: () {
                             print('IconButton pressed ...');
@@ -178,19 +182,19 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                             scrollDirection: Axis.horizontal,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 5.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
                                 child: FFButtonWidget(
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
                                   text: 'tagname',
                                   options: FFButtonOptions(
-                                    height: double.infinity,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    height: 40,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12, 0, 12, 0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -199,15 +203,15 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
+                                          fontSize: 16,
+                                          letterSpacing: 0,
                                         ),
-                                    elevation: 0.0,
-                                    borderSide: const BorderSide(
+                                    elevation: 0,
+                                    borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 0.0,
+                                      width: 0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
@@ -215,35 +219,64 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(width: 5.0))
-                          .addToStart(const SizedBox(width: 7.0))
-                          .addToEnd(const SizedBox(width: 7.0)),
+                          .divide(SizedBox(width: 5))
+                          .addToStart(SizedBox(width: 7))
+                          .addToEnd(SizedBox(width: 7)),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GridView(
-                    padding: EdgeInsets.zero,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 2.0,
-                      mainAxisSpacing: 2.0,
-                      childAspectRatio: 1.0,
-                    ),
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(0.0),
-                        child: Image.network(
-                          'https://picsum.photos/seed/221/600',
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+    child: GridView.builder(
+      padding: EdgeInsets.zero,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.7,
+      ),
+      scrollDirection: Axis.vertical,
+      itemCount: 16, // Replace with your actual item count
+      itemBuilder: (context, index) {
+        // Replace this with your actual post data
+
+        //if needed later, post_ids
+        //final postId = 'post_$index';
+
+        //rn just using random images, will use image from backend later
+        final imageUrl = 'https://picsum.photos/seed/${index * 100 + 41}/600';
+        
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PostViewWidget(), //will need to pass in backend data later, such as images, comments, post info, etc
+              ),
+            );
+          },
+          child: Container(
+            width: 100,
+            height: 180,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imageUrl,
+                width: 300,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        );
+      },
+    ),
+  ),
+),
               ],
             ),
           ),
