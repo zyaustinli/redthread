@@ -12,7 +12,7 @@ export 'swipe_model.dart';
 import 'package:carousel_slider/carousel_slider.dart'
 ;
 import '../singleview/singleview_widget.dart';
-
+import 'package:go_router/go_router.dart';
 
 class SwipeWidget extends StatefulWidget {
   const SwipeWidget({super.key});
@@ -91,6 +91,11 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                             ),
                             shape: BoxShape.rectangle,
                           ),
+                          child: GestureDetector( 
+                            onTap: () {
+            context.go('/search');
+                          },
+                          child: AbsorbPointer(
                           child: TextFormField(
                             controller: _model.textController,
                             focusNode: _model.textFieldFocusNode,
@@ -130,6 +135,8 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                             validator: _model.textControllerValidator
                                 .asValidator(context),
                           ),
+                          ),
+                        ),
                         ),
                       ],
                     ),

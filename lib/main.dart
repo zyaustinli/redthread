@@ -9,6 +9,10 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
+//import 'pages/catalog/swipe/swipe_widget.dart';
+
+import 'pages/catalog/search/search_widget.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
@@ -163,6 +167,33 @@ class _NavBarPageState extends State<NavBarPage> {
       ),
     );
   }
+}
+GoRouter createRouter(AppStateNotifier appStateNotifier) {
+  return GoRouter(
+    initialLocation: '/',
+    routes: [
+      GoRoute(
+        name: 'home',
+        path: '/',
+        builder: (context, state) => const NavBarPage(),
+      ),
+      GoRoute(
+        name: 'search',
+        path: '/search',
+        builder: (context, state) => const SearchWidget(), // Add your SearchScreen here
+      ),
+      // Add other routes as needed
+    ],
+    errorBuilder: (context, state) => const Scaffold(
+      body: Center(
+        child: Text('Page not found'),
+      ),
+    ),
+    redirect: (BuildContext context, GoRouterState state) {
+      // Add any global redirects here if needed
+      return null;
+    },
+  );
 }
 /*
 class NavBarPage extends StatefulWidget {
