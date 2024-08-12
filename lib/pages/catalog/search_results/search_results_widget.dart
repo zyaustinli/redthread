@@ -6,28 +6,31 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'search_model.dart';
-export 'search_model.dart';
+import 'search_results_model.dart';
+export 'search_results_model.dart';
 
-class SearchWidget extends StatefulWidget {
-  const SearchWidget({super.key});
+class SearchResultsWidget extends StatefulWidget {
+  final String initialQuery;
+
+  const SearchResultsWidget({Key? key, this.initialQuery = ''})
+      : super(key: key);
 
   @override
-  State<SearchWidget> createState() => _SearchWidgetState();
+  State<SearchResultsWidget> createState() => _SearchResultsWidgetState();
 }
 
-class _SearchWidgetState extends State<SearchWidget>
+class _SearchResultsWidgetState extends State<SearchResultsWidget>
     with TickerProviderStateMixin {
-  late SearchModel _model;
+  late SearchResultsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SearchModel());
+    _model = createModel(context, () => SearchResultsModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??= TextEditingController(text: widget.initialQuery);
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.tabBarController = TabController(
@@ -42,6 +45,15 @@ class _SearchWidgetState extends State<SearchWidget>
     _model.dispose();
 
     super.dispose();
+  }
+
+  void _handleSearch() {
+    final query = _model.textController.text;
+    if (query.isNotEmpty) {
+      // Perform the search action here
+      // For now, we'll just print the query
+      print('Searching for: $query');
+    }
   }
 
   @override
@@ -97,8 +109,10 @@ class _SearchWidgetState extends State<SearchWidget>
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: 24,
                             ),
-                            onPressed: () async {
-                              context.pop();
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pop();
+                               //pop twice to go back to search and then back to whatever was before
                             },
                           ),
                           Container(
@@ -150,6 +164,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                     fontSize: 12,
                                     letterSpacing: 0,
                                   ),
+                              onFieldSubmitted: (_) => _handleSearch(),
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),

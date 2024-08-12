@@ -14,6 +14,9 @@ import '../post_view/post_view_widget.dart';
 import 'catalog_model.dart';
 export 'catalog_model.dart';
 
+import 'package:redthread/pages/catalog/search/search_widget.dart';
+
+
 class CatalogWidget extends StatefulWidget {
   const CatalogWidget({super.key});
 
@@ -102,13 +105,21 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                                 ),
                                 shape: BoxShape.rectangle,
                               ),
+                              child: GestureDetector( 
+                            onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SearchWidget()),
+          );
+        },
+        child: AbsorbPointer(
                               child: TextFormField(
                                 controller: _model.textController,
                                 focusNode: _model.textFieldFocusNode,
                                 autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: ' Search',
+                                  labelText: 'Search',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -141,6 +152,8 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
                               ),
+        ),
+                            ),
                             ),
                           ],
                         ),
@@ -148,6 +161,10 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                     ),
                   ),
                 ),
+                
+                
+                /*
+                
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                   child: Container(
@@ -225,6 +242,12 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                     ),
                   ),
                 ),
+
+
+
+              */
+
+
                 Expanded(
   child: Padding(
     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),

@@ -1,4 +1,6 @@
 //import '/backend/backend.dart';
+import 'package:redthread/pages/catalog/search/search_widget.dart';
+
 import '/components/rate_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,10 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'swipe_model.dart';
 export 'swipe_model.dart';
-import 'package:carousel_slider/carousel_slider.dart'
-;
+import 'package:carousel_slider/carousel_slider.dart';
 import '../singleview/singleview_widget.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 
 class SwipeWidget extends StatefulWidget {
   const SwipeWidget({super.key});
@@ -93,8 +94,11 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                           ),
                           child: GestureDetector( 
                             onTap: () {
-            context.go('/search');
-                          },
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SearchWidget()),
+          );
+        },
                           child: AbsorbPointer(
                           child: TextFormField(
                             controller: _model.textController,

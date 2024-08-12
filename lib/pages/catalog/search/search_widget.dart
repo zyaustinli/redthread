@@ -28,6 +28,8 @@ class _SearchWidgetState extends State<SearchWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    
   }
 
   @override
@@ -35,6 +37,19 @@ class _SearchWidgetState extends State<SearchWidget> {
     _model.dispose();
 
     super.dispose();
+  }
+
+  void _handleSearch() {
+    final query = _model.textController.text;
+    if (query.isNotEmpty) {
+      context.pushNamed(
+        'search_results',
+        queryParameters: {'query': query},
+        extra: <String, dynamic>{
+          'query': query,
+        },
+      );
+    }
   }
 
   @override
@@ -90,9 +105,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: 24,
                             ),
-                            onPressed: () async {
-                              context.pop();
-                            },
+                            onPressed: () {
+
+Navigator.of(context).pop();
+
+},
+
                           ),
                           Container(
                             width: 325,
@@ -114,13 +132,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
+                                labelText: 'Search',
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
                                       fontFamily: 'Inter',
                                       letterSpacing: 0,
                                     ),
-                                hintText: 'Search',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -144,6 +162,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                                     fontSize: 12,
                                     letterSpacing: 0,
                                   ),
+                              autocorrect: false,
+                              enableSuggestions: false,
+                              autofillHints: null,
+                              onFieldSubmitted: (_) => _handleSearch(),
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),
@@ -159,159 +181,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: [
-                  Container(
-                    width: double.infinity,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.history,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                        Expanded(
-                          child: Text(
-                            'searched_items',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0,
-                                ),
-                          ),
-                        ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.close,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.history,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                        Expanded(
-                          child: Text(
-                            'Hello World',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0,
-                                ),
-                          ),
-                        ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.close,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.history,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                        Expanded(
-                          child: Text(
-                            'Hello World',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0,
-                                ),
-                          ),
-                        ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 40,
-                          icon: Icon(
-                            Icons.close,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24,
-                          ),
-                          onPressed: () async {
-                            context.pop();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+
+                  
+
                 ],
               ),
             ],

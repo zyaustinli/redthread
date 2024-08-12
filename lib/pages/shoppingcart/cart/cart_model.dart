@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'cart_widget.dart' show CartWidget;
 import 'package:flutter/material.dart';
+import 'cart_item.dart';
 
 class CartModel extends FlutterFlowModel<CartWidget> {
   ///  State fields for stateful widgets in this page.
@@ -14,6 +15,9 @@ class CartModel extends FlutterFlowModel<CartWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for CountController widget.
   int? countControllerValue;
+
+  List<CartItem> cartItems = [];
+
 
   @override
   void initState(BuildContext context) {}

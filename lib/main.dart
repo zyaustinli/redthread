@@ -12,6 +12,8 @@ import 'index.dart';
 //import 'pages/catalog/swipe/swipe_widget.dart';
 
 import 'pages/catalog/search/search_widget.dart';
+import 'pages/catalog/search_results/search_results_widget.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -181,6 +183,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         name: 'search',
         path: '/search',
         builder: (context, state) => const SearchWidget(), // Add your SearchScreen here
+      ),
+      GoRoute(
+        name : 'search_results',
+        path: '/search_results',
+        builder: (context, state) => SearchResultsWidget(
+          initialQuery: (state.extra as Map<String, dynamic>?)?['query'] as String? ?? '',
+
+        ),
       ),
       // Add other routes as needed
     ],
