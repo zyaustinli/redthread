@@ -17,6 +17,7 @@ class CartModel extends FlutterFlowModel<CartWidget> {
   int? countControllerValue;
 
   List<CartItem> cartItems = [];
+  var subtotal = 0.0; 
 
 
   @override

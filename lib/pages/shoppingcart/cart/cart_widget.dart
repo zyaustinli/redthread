@@ -45,7 +45,7 @@ class _CartWidgetState extends State<CartWidget> {
           price: 29.99,
           size: 'M',
           color: 'Red',
-          discount: 0,
+          discount: 20,
           quantity: 1)
     ];
   }
@@ -58,8 +58,9 @@ class _CartWidgetState extends State<CartWidget> {
   }
 
   double _calculateSubtotal() {
-    return _model.cartItems
-        .fold(0, (sum, item) => sum + (item.price * item.quantity));
+    _model.subtotal = _model.cartItems.fold(
+        0, (sum, item) => sum + ((item.price - item.discount) * item.quantity));
+    return _model.subtotal;
   }
 
   @override
@@ -216,7 +217,10 @@ class _CartWidgetState extends State<CartWidget> {
                                     builder: (context) =>
                                         const CheckoutWidget(),
                                     settings: RouteSettings(
-                                      arguments: _model.cartItems,
+                                      arguments: {
+                                        'cartItems': _model.cartItems,
+                                        'subtotal': _model.subtotal,
+                                      },
                                     ),
                                   ));
                             },

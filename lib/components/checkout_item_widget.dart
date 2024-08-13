@@ -68,7 +68,7 @@ class _CheckoutItemWidgetState extends State<CheckoutItemWidget> {
                         widget.cartItem.image,
                         width: 100,
                         height: 140,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),

@@ -12,8 +12,9 @@ class ChatWidget extends StatefulWidget {
   State<ChatWidget> createState() => _ChatWidgetState();
 }
 
-class _ChatWidgetState extends State<ChatWidget> {
+class _ChatWidgetState extends State<ChatWidget> with TickerProviderStateMixin {
   late ChatModel _model;
+  late TabController _tabController;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -21,6 +22,7 @@ class _ChatWidgetState extends State<ChatWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatModel());
+    _tabController = TabController(length: 2, vsync: this);
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
@@ -29,7 +31,7 @@ class _ChatWidgetState extends State<ChatWidget> {
   @override
   void dispose() {
     _model.dispose();
-
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -168,6 +170,28 @@ class _ChatWidgetState extends State<ChatWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              TabBar(
+                controller: _tabController,
+                labelColor: FlutterFlowTheme.of(context).primary,
+                unselectedLabelColor: FlutterFlowTheme.of(context).secondaryText,
+                labelStyle: FlutterFlowTheme.of(context).titleMedium,
+                indicatorColor: FlutterFlowTheme.of(context).primary,
+                tabs: const [
+                  Tab(text: 'Chat'),
+                  Tab(text: 'Requests'),
+                ],
+              ),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    // Chat Tab Content
+                    Center(child: Text('Chat Content')),
+                    // Requests Tab Content
+                    Center(child: Text('Requests Content')),
+                  ],
+                ),
+              ),
               Container(
                 width: double.infinity,
                 height: 50.0,

@@ -25,6 +25,8 @@ class CheckoutWidget extends StatefulWidget {
 
 class _CheckoutWidgetState extends State<CheckoutWidget> {
   late CheckoutModel _model;
+  late List<CartItem> cartItems;
+  late double subtotal;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -45,10 +47,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final cartItems = ModalRoute.of(context)!.settings.arguments as List<CartItem>;
-
+    
+    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    cartItems = args['cartItems'] as List<CartItem>;
+    subtotal = args['subtotal'] as double;
+    String formatedSubtotal = subtotal.toStringAsFixed(2);
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -551,7 +554,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                 scrollDirection: Axis.vertical,
                                 itemCount: cartItems.length,
                                 itemBuilder: (context, index) {
-                              final cartItem = cartItems[index];
+                                  final cartItem = cartItems[index];
 
                                   return CheckoutItemWidget(
                                     cartItem: cartItem,
@@ -773,7 +776,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                         ),
                                   ),
                                   Text(
-                                    'subtotal_cost',
+                                    formatedSubtotal,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
