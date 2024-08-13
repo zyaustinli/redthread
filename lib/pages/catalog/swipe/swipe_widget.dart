@@ -1,5 +1,4 @@
 //import '/backend/backend.dart';
-import 'package:redthread/main.dart';
 import 'package:redthread/pages/catalog/search/search_widget.dart';
 
 import '/components/rate_widget.dart';
@@ -14,8 +13,8 @@ import 'swipe_model.dart';
 export 'swipe_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../singleview/singleview_widget.dart';
-//import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
+//import 'package:go_router/go_router.dart';
 
 class SwipeWidget extends StatefulWidget {
   const SwipeWidget({super.key});
@@ -43,7 +42,6 @@ class _SwipeWidgetState extends State<SwipeWidget> {
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -84,7 +82,7 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                         children: [
                           Container(
                             width: 375.0,
-                            height: 100.0,
+                            height: 6.h,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -158,9 +156,9 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 children: [
                   Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          0.0, 15.0, 0.0, 0.0),
-                      child: GestureDetector(
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 15.0, 0.0, 0.0),
+                    child: GestureDetector(
                         onDoubleTap: () {
                           Navigator.push(
                             context,
@@ -902,7 +900,7 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          SingleviewWidget()),
+                                                          const SingleviewWidget()),
                                                 );
                                               },
                                               child: Text(
@@ -928,8 +926,8 @@ class _SwipeWidgetState extends State<SwipeWidget> {
                               ],
                             ),
                           ),
-                        ),
-                      )),
+                        )),
+                  ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Container(
