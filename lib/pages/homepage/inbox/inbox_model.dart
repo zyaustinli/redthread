@@ -11,6 +11,10 @@ class InboxModel extends FlutterFlowModel<InboxWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  TabController? chatTabController;
+  int get chatTabBarCurrentIndex =>
+      chatTabController != null ? chatTabController!.index : 0;
+
   // State field(s) for TextField widget.
   final textFieldKey1 = GlobalKey();
   FocusNode? textFieldFocusNode1;
