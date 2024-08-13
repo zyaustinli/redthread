@@ -775,7 +775,7 @@ child: Column(
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const SingleviewWidget()),
+            MaterialPageRoute(builder: (context) => SingleviewWidget()),
           );
         },
         child: Text(
@@ -794,6 +794,7 @@ child: Column(
                                 ],
                               ),
                             ),
+                            
                           ],
                         ),
                       ),

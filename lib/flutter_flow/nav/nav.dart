@@ -10,6 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
+
+import '/pages/shoppingcart/cart/cart_item.dart';
+
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
@@ -99,7 +102,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'checkout',
           path: '/checkout',
-          builder: (context, params) => const CheckoutWidget(),
+          builder: (context, params) =>  CheckoutWidget(),
         ),
         FFRoute(
           name: 'create_outfit',
