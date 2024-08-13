@@ -458,6 +458,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "sizer",
+      "rootUri": "file:///C:/Users/darin/AppData/Local/Pub/Cache/hosted/pub.dev/sizer-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Users/darin/fvm/versions/3.22.3/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -686,7 +692,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-13T16:29:40.093921Z",
+  "generated": "2024-08-13T16:44:04.429186Z",
   "generator": "pub",
   "generatorVersion": "3.4.4",
   "flutterRoot": "file:///C:/Users/darin/fvm/versions/3.22.3",
